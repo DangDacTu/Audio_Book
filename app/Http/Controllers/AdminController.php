@@ -20,14 +20,15 @@ class AdminController extends Controller
         if($result){
             return view('admin.dashboard');
         }else{
+            echo 'sai mat khau';
             return view('adminLogin');
+
         }
         
     }
     //logout
     public function logout(){
-        
-        
+        return view('adminLogin');
     }
 
 }

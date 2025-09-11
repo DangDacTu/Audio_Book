@@ -12,7 +12,14 @@
     </style>
 </head>
 <body>
-   @yield('adminContent')
+    <div style="text-align:right;">
+        <form action="{{ url('/logout') }}" method="GET">
+            @csrf
+            <button type="submit">Đăng xuất</button>
+        </form>
+    </div>
+
+    @yield('adminContent')
 
     <h2>Sản phẩm còn</h2>
     <table>
@@ -65,4 +72,7 @@
         <label for="gia">Giá:</label>
         <input type="number" id="gia" name="gia" required> đ
         <br><br>
-        <button type="submit">Thêm sản
+        <button type="submit">Thêm sản phẩm</button>
+    </form>
+</body>
+</html>
