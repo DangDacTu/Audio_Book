@@ -35,3 +35,5 @@ Route::get('/dashboard',[AdminController::class,'showDashboard'])->name('showDas
 Route::post('/admin-dashboard', [AdminController::class, 'dashboard']);
 //logout
 Route::get('/logout',[AdminController::class,'logout'])->name('index');
+
+Route::post('/save-category-product',[AdminController::class,'save_category_product']);

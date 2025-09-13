@@ -65,12 +65,13 @@
     </table>
 
     <h2 class="section-title">Thêm sản phẩm mới vào trang bán hàng</h2>
-    <form action="add_product.php" method="POST">
+    <form action="{{ URL::to('save-category-product') }}" method="POST">
+        {{ csrf_field() }}
         <label for="ten_san_pham">Tên sản phẩm:</label>
-        <input type="text" id="ten_san_pham" name="ten_san_pham" required>
+        <input type="text" name="category_product_name" required>
         <br><br>
         <label for="gia">Giá:</label>
-        <input type="number" id="gia" name="gia" required> đ
+        <input type="number" name="category_product_price" required> đ
         <br><br>
         <button type="submit">Thêm sản phẩm</button>
     </form>
