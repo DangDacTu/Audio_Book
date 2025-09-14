@@ -11,8 +11,10 @@ class AdminController extends Controller
     {
         return view("adminLogin");
     }
-    public function showDashboard(){
-        return view("admin.dashboard");
+    //hiển thị sản phẩm còn
+    public function showDashboard() {
+        $all_category_product = DB::table('tbl_product')->get();
+        return view('adminLayout', compact('all_category_product'));
     }
     //login
     public function dashboard(Request $request){
@@ -47,6 +49,11 @@ class AdminController extends Controller
         DB::table('tbl_product')->insert($data);
         echo 'Product added successfully';
         return redirect('/return-admin-dashboard')->with('success', 'Category product saved successfully!');
+    }
+    public function all_category_product(Request $request){
+        $all_category_product = DB::table('tbl_product')->get();
+        $manager_category_product = view('admin.all_category_product')->with('all_category_product');
+        return view('adminLayout')->with('admin.all_category_product', $manager_category_product);
     }
 
 }

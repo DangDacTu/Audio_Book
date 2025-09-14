@@ -31,20 +31,15 @@
             </tr>
         </thead>
         <tbody>
+            @foreach ($all_category_product as $key => $product)
             <tr>
-                <td>1</td>
-                <td>Sản phẩm A</td>
-                <td>200,000đ</td>
+                <td>{{ $key + 1 }}</td>
+                <td>{{ $product->category_name }}</td>
+                <td>{{ number_format($product->category_price) }}đ</td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Sản phẩm B</td>
-                <td>150,000đ</td>
-            </tr>
-            <!-- Thêm sản phẩm còn khác tại đây -->
+            @endforeach
         </tbody>
     </table>
-
     <h2 class="section-title">Sản phẩm đã bán</h2>
     <table>
         <thead>
