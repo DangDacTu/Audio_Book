@@ -10,6 +10,7 @@
         th { background: #f2f2f2; }
         .section-title { margin-top: 30px; }
     </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 <body>
     <div style="text-align:right;">
@@ -28,6 +29,7 @@
                 <th>STT</th>
                 <th>Tên sản phẩm</th>
                 <th>Giá</th>
+                <th>Hành động</th>
             </tr>
         </thead>
         <tbody>
@@ -36,6 +38,11 @@
                 <td>{{ $key + 1 }}</td>
                 <td>{{ $product->category_name }}</td>
                 <td>{{ number_format($product->category_price) }}đ</td>
+                <td>
+                    <a href="{{ route('category.delete', $product->category_id) }}" onclick="return confirm('Bạn có chắc muốn xóa?')">
+                        <span class="material-symbols-outlined">delete</span>
+                    </a>
+                </td>
             </tr>
             @endforeach
         </tbody>

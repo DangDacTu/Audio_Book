@@ -21,17 +21,17 @@ class AdminController extends Controller
         $admin_email = $request->input('admin_email');
         $admin_password = md5($request->input('admin_password'));
         $result = DB::table('admin')
-        ->where('admin_email', $admin_email)
-        ->where('admin_password', $admin_password)
-        ->first();
-        if($result){
-            return view('admin.dashboard');
-        }else{
-            echo 'sai mat khau';
-            return view('adminLogin');
+            ->where('admin_email', $admin_email)
+            ->where('admin_password', $admin_password)
+            ->first();
 
+        if ($result) {
+            // Lấy danh sách sản phẩm còn
+            $all_category_product = DB::table('tbl_product')->get();
+            return view('adminLayout', compact('all_category_product'));
+        } else {
+            return redirect('/admin')->with('error', 'Sai tài khoản hoặc mật khẩu!');
         }
-        
     }
     //logout
     public function logout(){
@@ -54,6 +54,12 @@ class AdminController extends Controller
         $all_category_product = DB::table('tbl_product')->get();
         $manager_category_product = view('admin.all_category_product')->with('all_category_product');
         return view('adminLayout')->with('admin.all_category_product', $manager_category_product);
+    }
+   //xóa sản phẩm
+    public function delete_category_product($id)
+    {
+        DB::table('tbl_product')->where('category_id', $id)->delete();
+        return redirect('/return-admin-dashboard')->with('success', 'Xóa sản phẩm thành công!');
     }
 
 }

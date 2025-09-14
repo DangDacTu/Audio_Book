@@ -37,3 +37,5 @@ Route::post('/admin-dashboard', [AdminController::class, 'dashboard']);
 Route::get('/logout',[AdminController::class,'logout'])->name('index');
 
 Route::post('/save-category-product',[AdminController::class,'save_category_product']);
+
+Route::get('/delete-category-product/{id}', [AdminController::class, 'delete_category_product'])->name('category.delete');
