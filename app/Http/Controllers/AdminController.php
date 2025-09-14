@@ -46,7 +46,7 @@ class AdminController extends Controller
         // echo '</pre>';
         DB::table('tbl_product')->insert($data);
         echo 'Product added successfully';
-        return redirect('/')->with('success', 'Category product saved successfully!');
+        return redirect('/return-admin-dashboard')->with('success', 'Category product saved successfully!');
     }
 
 }
