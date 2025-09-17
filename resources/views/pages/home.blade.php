@@ -7,7 +7,7 @@
             <span>{{ $product->category_name }}</span><br>
             <span>{{ number_format($product->category_price) }} VND</span><br>
             <button>
-                <a href="{{ url('/pay?name=' . urlencode($product->category_name) . '&price=' . $product->category_price) }}">Mua Ngay</a>
+                <a href="{{ route('cart.add', $product->category_id) }}">Thêm vào giỏ hàng</a>
             </button>
         </div>
         <hr>

@@ -2,27 +2,20 @@
 
 use App\Http\Controllers\HomeController; // Thêm dòng này
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PayProduct;    
 use Illuminate\Support\Facades\Route;
-
-/*
-Route::get('/', function () {
-   return view('welcome');
-});
-Route::get('/pay', function () {
-   return view('pay');
-});
-Route::get('/admin', function () {
-   return view('admin');
-});
-Route::get('/home', function () {
-   return view('home');
-});
-*/
 
 // User
 
+Route::get('/add-to-cart/{id}', [PayProduct::class, 'addToCart'])->name('cart.add');
+
+Route::get('/pay', [PayProduct::class, 'payProduct']);
+Route::get('/cart', [PayProduct::class, 'cart']);
 Route::get('/',[HomeController::class, 'index'])->name('index');
 Route::get('/home',[HomeController::class, 'index'])->name('home');
+Route::get('/delete-cart-item/{id}', [PayProduct::class, 'deleteCartItem'])->name('cart.delete');
+
+// Product Payment
 
 //Route::get('/admin', [AdminController::class, 'index']);
 //Route::post('/admin', [AdminController::class, 'store']);

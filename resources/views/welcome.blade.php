@@ -14,7 +14,7 @@
 		<ul>
 			<li><a href ="{{ URL::to('/home') }}">Home</a></li>
 			<li><a href ="/admin">Admin</a></li>
-			<li><a href ="/pay">Thanh Toan</a></li>
+			<li><a href ="/pay">Giỏ hàng</a></li>
 		</ul>		
 	</div>
 	@yield('content')
