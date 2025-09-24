@@ -38,4 +38,10 @@ class payProduct extends Controller
         DB::table('cart_pay')->where('id', $id)->delete();
         return redirect('/cart')->with('success', 'Đã xóa sản phẩm khỏi giỏ hàng!');
     }
+    public function pay()
+    {
+        $cart = DB::table('cart_pay')->get();
+        $total = DB::table('cart_pay')->sum('price');
+        return view('pay', compact('cart', 'total'));
+    }
 }
