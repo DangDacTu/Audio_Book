@@ -36,4 +36,3 @@ Route::post('/save-category-product',[AdminController::class,'save_category_prod
 Route::get('/delete-category-product/{id}', [AdminController::class, 'delete_category_product'])->name('category.delete');
 
 
-

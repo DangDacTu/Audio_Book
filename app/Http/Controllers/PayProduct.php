@@ -20,6 +20,7 @@ class payProduct extends Controller
             DB::table('cart_pay')->insert([
                 'name' => $product->category_name,
                 'price' => $product->category_price,
+                'image' => $product->category_image, // Thêm dòng này
             ]);
             return redirect('/cart')->with('success', 'Đã thêm vào giỏ hàng!');
         } else {

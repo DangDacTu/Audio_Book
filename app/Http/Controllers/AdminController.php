@@ -39,17 +39,30 @@ class AdminController extends Controller
         return view('adminLogin');
     }
 
-    public function save_category_product(Request $request){
-        $data = array();
-        $data['category_name'] = $request->input('category_product_name');
-        $data['category_price'] = $request->input('category_product_price');
+    public function save_category_product(Request $request)
+    {
+        $data = [
+            'category_name' => $request->category_product_name,
+            'category_price' => $request->category_product_price,
+        ];
 
-        // echo '<pre>';
-        // print_r($data);
-        // echo '</pre>';
+        if ($request->hasFile('category_image')) {
+            $image = $request->file('category_image');
+            $imageName = time().'_'.$image->getClientOriginalName();
+            $image->move(public_path('images'), $imageName);
+            $data['category_image'] = $imageName;
+        }
+
+        if ($request->hasFile('category_audio')) {
+            $audio = $request->file('category_audio');
+            $audioName = time().'_'.$audio->getClientOriginalName();
+            $audio->move(public_path('audio'), $audioName);
+            $data['category_audio'] = $audioName;
+        }
+
         DB::table('tbl_product')->insert($data);
-        echo 'Product added successfully';
-        return redirect('/return-admin-dashboard')->with('success', 'Category product saved successfully!');
+
+        return redirect()->back()->with('success', 'Thêm sản phẩm thành công!');
     }
     public function all_category_product(Request $request){
         $all_category_product = DB::table('tbl_product')->get();
