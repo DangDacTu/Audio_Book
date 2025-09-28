@@ -10,6 +10,7 @@
                     <th>STT</th>
                     <th>Tên tài khoản</th>
                     <th>Email</th>
+                    <th>Hành động</th>
                 </tr>
             </thead>
             <tbody>
@@ -18,6 +19,12 @@
                         <td>{{ $key + 1 }}</td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
+                        <td>
+                            <a href="{{ route('user.delete', $user->id) }}"
+                                onclick="return confirm('Bạn có chắc muốn xóa tài khoản này?')">
+                                <span class="material-symbols-outlined">delete</span>
+                            </a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

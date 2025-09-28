@@ -46,4 +46,9 @@ class UserController extends Controller
         $users = DB::table('users')->get();
         return view('userInfo', compact('users'));
     }
+    public function deleteUser($id)
+    {
+        DB::table('users')->where('id', $id)->delete();
+        return redirect()->route('user.info')->with('success', 'Xóa tài khoản thành công!');
+    }
 }

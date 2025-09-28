@@ -29,6 +29,9 @@
                             @endif
                         </td>
                         <td>
+                            <a href="{{ route('category.edit', $product->category_id) }}">
+                                <span class="material-symbols-outlined">edit</span>
+                            </a>
                             <a href="{{ route('category.delete', $product->category_id) }}"
                                 onclick="return confirm('Bạn có chắc muốn xóa?')">
                                 <span class="material-symbols-outlined">delete</span>

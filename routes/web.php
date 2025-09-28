@@ -54,5 +54,11 @@ Route::get('/product-list', function() {
 })->name('product.list');
 //thong tin nguoi dung
 Route::get('/user-info', [UserController::class, 'listUsers'])->name('user.info');
+Route::get('/delete-user/{id}', [UserController::class, 'deleteUser'])->name('user.delete');
+//tim kiem san pham
+Route::get('/search', [HomeController::class, 'search'])->name('product.search');
+//sua san pham
+Route::get('/edit-product/{id}', [AdminController::class, 'edit_category_product'])->name('category.edit');
+Route::post('/update-product/{id}', [AdminController::class, 'update_category_product'])->name('category.update');
 
 

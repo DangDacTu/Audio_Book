@@ -76,5 +76,35 @@ class AdminController extends Controller
         DB::table('tbl_product')->where('category_id', $id)->delete();
         return redirect('/return-admin-dashboard')->with('success', 'Xóa sản phẩm thành công!');
     }
+    public function edit_category_product($id)
+    {
+        $product = DB::table('tbl_product')->where('category_id', $id)->first();
+        return view('editProduct', compact('product'));
+    }
 
+    public function update_category_product(Request $request, $id)
+    {
+        $data = [
+            'category_name' => $request->category_product_name,
+            'category_price' => $request->category_product_price,
+        ];
+
+        if ($request->hasFile('category_image')) {
+            $image = $request->file('category_image');
+            $imageName = time().'_'.$image->getClientOriginalName();
+            $image->move(public_path('images'), $imageName);
+            $data['category_image'] = $imageName;
+        }
+
+        if ($request->hasFile('category_audio')) {
+            $audio = $request->file('category_audio');
+            $audioName = time().'_'.$audio->getClientOriginalName();
+            $audio->move(public_path('audio'), $audioName);
+            $data['category_audio'] = $audioName;
+        }
+
+        DB::table('tbl_product')->where('category_id', $id)->update($data);
+
+        return redirect()->route('product.list')->with('success', 'Cập nhật sản phẩm thành công!');
+    }
 }
