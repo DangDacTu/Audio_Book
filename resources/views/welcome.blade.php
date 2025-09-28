@@ -80,8 +80,8 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" href="{{ URL::to('/cart') }}">
-            <i class="fa-solid fa-cart-shopping"></i>
-          </a>
+            <i class="fa-solid fa-cart-shopping"></i>  
+          </a> 
         </li>
       </ul>
       <form class="d-flex" role="search">

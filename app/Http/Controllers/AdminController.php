@@ -13,7 +13,8 @@ class AdminController extends Controller
         return view("adminLogin");
     }
     //hiển thị sản phẩm còn
-    public function showDashboard() {
+    public function showDashboard()
+    {
         $all_category_product = DB::table('tbl_product')->get();
         return view('adminLayout', compact('all_category_product'));
     }
