@@ -15,11 +15,18 @@ Route::get('/add-to-cart/{id}', [PayProduct::class, 'addToCart'])->name('cart.ad
 
 Route::get('/pay', [PayProduct::class, 'pay']);
 Route::get('/cart', [PayProduct::class, 'cart']);
+
 Route::get('/home',[HomeController::class, 'index'])->name('index');
 Route::get('/home',[HomeController::class, 'index'])->name('home');
+
 Route::get('/delete-cart-item/{id}', [PayProduct::class, 'deleteCartItem'])->name('cart.delete');
 
 // Product Payment
+Route::get('/pay-momo', [PayProduct::class, 'payMomo'])->name('pay.momo');
+Route::post('/payment-momo', [PayProduct::class, 'paymentMomo'])->name('payment.momo');
+Route::post('/payment-vnpay', [PayProduct::class, 'paymentVnpay'])->name('payment.vnpay');
+Route::get('/payment/vnpay/return', [PayProduct::class, 'libraryAfterPayment'])->name('payment.vnpay.return');
+
 
 //Route::get('/admin', [AdminController::class, 'index']);
 //Route::post('/admin', [AdminController::class, 'store']);
@@ -60,5 +67,13 @@ Route::get('/search', [HomeController::class, 'search'])->name('product.search')
 //sua san pham
 Route::get('/edit-product/{id}', [AdminController::class, 'edit_category_product'])->name('category.edit');
 Route::post('/update-product/{id}', [AdminController::class, 'update_category_product'])->name('category.update');
+//thu vien
+Route::get('/library', [HomeController::class, 'library'])->name('library');
+
+Route::get('/library/audio', [HomeController::class, 'libraryAudio'])->name('library.audio');
+// xoa san pham trong thu vien
+Route::delete('/library/delete/{id}', [HomeController::class, 'deleteLibrary'])->name('library.delete');
+// nghe sach 
+Route::get('/listening', [HomeController::class, 'listening'])->name('listening');
 
 

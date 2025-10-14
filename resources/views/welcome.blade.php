@@ -26,7 +26,6 @@
 			height: 100vh;
 			width: 220px;
 			background-color: #111827;
-			/* màu đen xám */
 			color: #fff;
 			padding-top: 20px;
 		}
@@ -51,8 +50,7 @@
 
 		.main-content {
 			margin-left: 220px;
-			/* chừa chỗ sidebar */
-			padding: 20px;
+			padding: 0;
 		}
 
 		.logo {
@@ -60,6 +58,40 @@
 			font-weight: bold;
 			text-align: center;
 			margin-bottom: 30px;
+		}
+
+		.main {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.topbar {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 12px 20px;
+			background: #1e293b;
+		}
+
+		.search-box input {
+			padding: 8px 12px;
+			border: none;
+			border-radius: 6px;
+			width: 260px;
+		}
+
+		.topbar-right {
+			display: flex;
+			align-items: center;
+			gap: 20px;
+		}
+
+		.avatar {
+			width: 36px;
+			height: 36px;
+			border-radius: 50%;
+			background: #64748b;
 		}
 	</style>
 </head>
@@ -80,33 +112,25 @@
 		<a href="/kids"><i class="fas fa-child"></i> Thiếu nhi</a>
 	</div>
 	<div class="main-content">
-		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #111827;">
-			<div class="container-fluid">
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-					data-bs-target="#navbarSupportedContent">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item">
-							<a class="nav-link active" href="{{ URL::to('/cart') }}">
-								<i class="fa-solid fa-cart-shopping"></i>
-							</a>
-						</li>
-					</ul>
-					<form class="d-flex" role="search" action="{{ route('product.search') }}" method="GET">
-						<input class="form-control me-2" type="search" name="keyword" placeholder="Search"
-							aria-label="Search" />
-						<button class="btn btn-outline-light" type="submit">
-							<i class="fa-solid fa-magnifying-glass"></i>
-						</button>
+		<div class="main">
+			<!-- Top bar -->
+			<div class="topbar">
+				<div class="search-box">
+					<form class="d-flex" role="search" action="{{ route('product.search') }}" method="GET"
+						style="margin-bottom:0;">
+						<input class="form-control me-2" type="search" name="keyword" placeholder="🔍 Tìm kiếm..."
+							aria-label="Search" style="background:#fff; color:#222;" />
 					</form>
 				</div>
+				<div class="topbar-right">
+					<a href="{{ URL::to('/cart') }}" style="color:#fff; font-size:20px; text-decoration:none;">
+						<i class="fa-solid fa-cart-shopping"></i>
+					</a>
+					<div class="avatar"></div>
+				</div>
 			</div>
-		</nav>
-
-
-		@yield('content')
+			@yield('content')
+		</div>
 	</div>
 	<script src="./toolbootstrap/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>

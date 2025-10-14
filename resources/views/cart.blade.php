@@ -43,8 +43,10 @@
                 @endif
             </tbody>
         </table>
-        <div style="text-align:right;">
-            <a href="/pay"><button>Thanh toán</button></a>
+        <div style="text-align:right; margin-top:20px;">
+            <strong>Tổng tiền: {{ number_format($total) }} VND</strong>
+            <a href="{{ route('pay.momo') }}"><button type="button" style="background:#19a2d8;color:#fff;">Thanh toán bằng
+                    VNPAY</button></a>
         </div>
     </div>
 
