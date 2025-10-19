@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="./toolbootstrap/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-	<title>Kho Bau Am Thanh</title>
+	<title>Audio Books</title>
 
 	<style>
 		body {
@@ -161,7 +161,7 @@
 							<i class="fas fa-user-circle"></i>
 						</button>
 						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-							<li><a class="dropdown-item" href="/admin">🛠️ Trang quản trị</a></li>
+							<li><a class="dropdown-item" href="/admin">🛠️ Trang Admin</a></li>
 							<li>
 								<hr class="dropdown-divider">
 							</li>
