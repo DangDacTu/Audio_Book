@@ -11,7 +11,6 @@
                 <th>STT</th>
                 <th>Tên sản phẩm</th>
                 <th>Giá</th>
-                <th>Ngày bán</th>
             </tr>
         </thead>
         <tbody>

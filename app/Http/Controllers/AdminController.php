@@ -28,7 +28,6 @@ class AdminController extends Controller
             ->first();
 
         if ($result) {
-            // Lấy danh sách sản phẩm còn
             $all_category_product = DB::table('tbl_product')->get();
             return view('adminLayout', compact('all_category_product'));
         } else {
@@ -63,7 +62,7 @@ class AdminController extends Controller
 
         DB::table('tbl_product')->insert($data);
 
-        return redirect()->back()->with('success', 'Thêm sản phẩm thành công!');
+        return redirect('/product-list')->with('success', 'Thêm sản phẩm thành công!');
     }
     //hiển thị tất cả sản phẩm
     public function all_category_product(Request $request){
@@ -75,7 +74,7 @@ class AdminController extends Controller
     public function delete_category_product($id)
     {
         DB::table('tbl_product')->where('category_id', $id)->delete();
-        return redirect('/return-admin-dashboard')->with('success', 'Xóa sản phẩm thành công!');
+        return redirect('/product-list')->with('success', 'Xóa sản phẩm thành công!');
     }
     //sửa sản phẩm
     public function edit_category_product($id)

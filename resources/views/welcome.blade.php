@@ -87,11 +87,40 @@
 			gap: 20px;
 		}
 
-		.avatar {
-			width: 36px;
-			height: 36px;
-			border-radius: 50%;
-			background: #64748b;
+		/* 🔵 User icon style */
+		.user-icon {
+			font-size: 28px;
+			color: #e2e8f0;
+			cursor: pointer;
+			transition: color 0.3s, transform 0.2s;
+			border: none;
+			background: none;
+		}
+
+		.user-icon:hover {
+			color: #facc15;
+			transform: scale(1.1);
+		}
+
+		.dropdown-menu {
+			background-color: #1e293b;
+			border: none;
+			min-width: 160px;
+		}
+
+		.dropdown-item {
+			color: #e2e8f0;
+			padding: 10px 16px;
+			transition: background 0.2s, color 0.2s;
+		}
+
+		.dropdown-item:hover {
+			background-color: #374151;
+			color: #facc15;
+		}
+
+		.dropdown-divider {
+			border-color: #374151;
 		}
 	</style>
 </head>
@@ -103,13 +132,15 @@
 		</div>
 		<a href="{{ URL::to('/home') }}"><i class="fas fa-home"></i> Trang chủ</a>
 		<a href="/library"><i class="fas fa-book"></i> Thư viện</a>
-		<a href="/ranking"><i class="fas fa-chart-line"></i> Bảng xếp hạng</a>
-		<a href="/listening"><i class="fas fa-headphones"></i> Đang Nghe</a>
+		<a href="/library"><i class="fas fa-chart-line"></i> Bảng xếp hạng</a>
+		<a href="/library"><i class="fas fa-headphones"></i> Đang Nghe</a>
 		<hr style="border-color: #374151;">
-		<a href="/audiobook"><i class="fas fa-book-open"></i> Sách nói </a>
-		<a href="/story"><i class="fas fa-microphone"></i> Truyện nói</a>
-		<a href="/kids"><i class="fas fa-child"></i> Thiếu nhi</a>
+		<a href="{{ URL::to('/home') }}"><i class="fas fa-book-open"></i> Sách nói </a>
+		<a href="{{ URL::to('/home') }}"><i class="fas fa-child"></i> Thiếu nhi</a>	
+		<a href="{{ URL::to('/home') }}"><i class="fas fa-microphone"></i> Truyện nói</a>
+		<a href="{{ URL::to('/cart') }}"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
 	</div>
+
 	<div class="main-content">
 		<div class="main">
 			<!-- Top bar -->
@@ -121,25 +152,27 @@
 							aria-label="Search" style="background:#fff; color:#222;" />
 					</form>
 				</div>
+
 				<div class="topbar-right">
-					<a href="{{ URL::to('/cart') }}" style="color:#fff; font-size:20px; text-decoration:none;">
-						<i class="fa-solid fa-cart-shopping"></i>
-					</a>
-					<!-- Avatar dropdown -->
+					<!--  User icon dropdown -->
 					<div class="dropdown">
-						<button class="avatar dropdown-toggle" type="button" id="avatarDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="border:none; background:#64748b;">
+						<button class="user-icon dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown"
+							aria-expanded="false">
+							<i class="fas fa-user-circle"></i>
 						</button>
-						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="avatarDropdown">
-							<li><a class="dropdown-item" href="/admin">Admin</a></li>
+						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+							<li><a class="dropdown-item" href="/admin">🛠️ Trang quản trị</a></li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="/logout">Đăng xuất</a></li>
+							<li><a class="dropdown-item" href="/logout">🚪 Đăng xuất</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
+
 			@yield('content')
 		</div>
 	</div>
+
 	<script src="./toolbootstrap/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
