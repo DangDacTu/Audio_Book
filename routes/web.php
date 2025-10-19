@@ -34,7 +34,7 @@ Route::get('/dashboard',[AdminController::class,'showDashboard'])->name('showDas
 //login
 Route::post('/admin-dashboard', [AdminController::class, 'dashboard']);
 //logout
-Route::get('/logout',[AdminController::class,'logout'])->name('index');
+Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
 
 Route::post('/save-category-product',[AdminController::class,'save_category_product']);
 
@@ -74,4 +74,7 @@ Route::get('/listening', [HomeController::class, 'listening'])->name('listening'
 //doanh thu trong admin
 Route::get('/admin/revenue', [App\Http\Controllers\AdminController::class, 'revenue'])->name('admin.revenue');
 
+// route mới: xuất PDF
+Route::get('/admin/revenue/export-pdf', [App\Http\Controllers\AdminController::class, 'exportRevenuePdf'])
+    ->name('admin.revenue.export_pdf');
 

@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
+use Barryvdh\DomPDF\Facade\Pdf; // thêm import
 
 class AdminController extends Controller
 {
@@ -28,8 +29,11 @@ class AdminController extends Controller
             ->first();
 
         if ($result) {
-            $all_category_product = DB::table('tbl_product')->get();
-            return view('adminLayout', compact('all_category_product'));
+            // Lưu session đơn giản để giữ trạng thái đăng nhập (tuỳ chọn)
+            Session::put('admin_email', $admin_email);
+
+            // Redirect tới action revenue() để hiển thị trang doanh thu
+            return redirect()->action([self::class, 'revenue']);
         } else {
             return redirect('/admin')->with('error', 'Sai tài khoản hoặc mật khẩu!');
         }
@@ -120,8 +124,28 @@ class AdminController extends Controller
         $soldProducts = DB::table('library')
             ->join('tbl_product', 'library.product_id', '=', 'tbl_product.category_id')
             ->select('tbl_product.category_name', 'tbl_product.category_price', 'library.created_at')
+            ->orderBy('library.created_at', 'desc')
             ->get();
 
         return view('admin.revenue', compact('totalRevenue', 'soldProducts'));
+    }
+
+    // Thêm phương thức xuất PDF
+    public function exportRevenuePdf()
+    {
+        $soldProducts = DB::table('library')
+            ->join('tbl_product', 'library.product_id', '=', 'tbl_product.category_id')
+            ->select('tbl_product.category_name', 'tbl_product.category_price', 'library.created_at')
+            ->orderBy('library.created_at', 'desc')
+            ->get();
+
+        $totalRevenue = $soldProducts->sum('category_price');
+
+        $pdf = Pdf::loadView('admin.revenue_pdf', [
+            'soldProducts' => $soldProducts,
+            'totalRevenue' => $totalRevenue,
+        ])->setPaper('a4', 'portrait');
+
+        return $pdf->download('revenue.pdf');
     }
 }

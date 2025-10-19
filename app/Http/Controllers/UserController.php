@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cookie;
 
 class UserController extends Controller
 {
@@ -20,17 +21,31 @@ class UserController extends Controller
 
         if ($user) {
             session(['user_id' => $user->id]);
-            return redirect('/home'); // Trả về trang home
+
+            // Nếu checkbox remember được tick -> tạo cookie 30 ngày
+            if ($request->has('remember')) {
+                $cookie = cookie('user_email', $user->email, 60 * 24 * 30); // 30 days
+                return redirect('/home')->with('success', 'Đăng nhập thành công')->cookie($cookie);
+            }
+
+            return redirect('/home')->with('success', 'Đăng nhập thành công');
         } else {
             return back()->with('error', 'Sai tài khoản hoặc mật khẩu!');
         }
+    }
+
+    // Thêm phương thức logout (xoá session + cookie)
+    public function logout()
+    {
+        session()->flush();
+        return redirect('/')->withCookie(Cookie::forget('user_email'));
     }
 
     public function showRegister()
     {
         return view('user.register');
     }
-
+// dang ky
     public function register(Request $request)
     {
         DB::table('users')->insert([
@@ -44,7 +59,7 @@ class UserController extends Controller
     public function listUsers()
     {
         $users = DB::table('users')->get();
-        return view('userInfo', compact('users'));
+        return view('userInfo', data: compact('users'));
     }
     public function deleteUser($id)
     {

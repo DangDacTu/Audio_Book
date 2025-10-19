@@ -136,7 +136,7 @@
 		<a href="/library"><i class="fas fa-headphones"></i> Đang Nghe</a>
 		<hr style="border-color: #374151;">
 		<a href="{{ URL::to('/home') }}"><i class="fas fa-book-open"></i> Sách nói </a>
-		<a href="{{ URL::to('/home') }}"><i class="fas fa-child"></i> Thiếu nhi</a>	
+		<a href="{{ URL::to('/home') }}"><i class="fas fa-child"></i> Thiếu nhi</a>
 		<a href="{{ URL::to('/home') }}"><i class="fas fa-microphone"></i> Truyện nói</a>
 		<a href="{{ URL::to('/cart') }}"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
 	</div>
@@ -156,18 +156,24 @@
 				<div class="topbar-right">
 					<!--  User icon dropdown -->
 					<div class="dropdown">
-						<button class="user-icon dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown"
-							aria-expanded="false">
+						<button class="user-icon dropdown-toggle" type="button" id="userDropdown"
+							data-bs-toggle="dropdown" aria-expanded="false">
 							<i class="fas fa-user-circle"></i>
 						</button>
 						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
 							<li><a class="dropdown-item" href="/admin">🛠️ Trang quản trị</a></li>
-							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="/logout">🚪 Đăng xuất</a></li>
+							<li>
+								<hr class="dropdown-divider">
+							</li>
+							<li><a class="dropdown-item" href="/">🚪 Đăng xuất</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
+
+			@php
+				$remembered = request()->cookie('user_email');
+			@endphp
 
 			@yield('content')
 		</div>

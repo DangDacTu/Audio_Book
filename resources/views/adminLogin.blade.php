@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,96 +7,94 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      background: #0f172a;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       margin: 0;
-      padding: 20px;
     }
 
     .login-container {
-      background: #fff;
+      background: #1e293b;
+      color: #e2e8f0;
       padding: 40px 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
       width: 100%;
-      max-width: 380px;
+      max-width: 400px;
       text-align: center;
       animation: fadeIn 0.8s ease-in-out;
     }
 
     h2 {
-      color: #2a5298;
+      color: #38bdf8;
       margin-bottom: 25px;
       font-size: 1.8em;
       font-weight: bold;
       letter-spacing: 1px;
     }
 
-    .form-group {
-      margin-bottom: 20px;
-      text-align: center;
-      position: relative;
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .form-group label {
+    .form-group {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    label {
       display: block;
       margin-bottom: 8px;
-      color: #444;
+      color: #cbd5e1;
       font-weight: 600;
       font-size: 0.95em;
       text-align: left;
-      max-width: 90%;
-      margin-left: auto;
-      margin-right: auto;
     }
 
-    .form-group input {
-      width: 80%; /* chiều rộng form */
-      padding: 10px 38px 10px 12px;
-      border: 1px solid #ccc;
+    input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #334155;
       border-radius: 8px;
+      background: #0f172a;
+      color: #f1f5f9;
       font-size: 0.95em;
       transition: all 0.3s ease;
+      box-sizing: border-box;
     }
 
-    .form-group input:focus {
-      border-color: #2a5298;
-      box-shadow: 0 0 6px rgba(42, 82, 152, 0.3);
+    input:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
       outline: none;
     }
 
-    .form-group .icon {
-      position: absolute;
-      right: 28px;
-      top: 44px;
-      color: #999;
-      font-size: 1.1em;
-    }
-
     button[type="submit"] {
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      color: #fff;
+      background: #38bdf8;
+      color: #0f172a;
       padding: 12px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
       font-size: 1em;
       font-weight: bold;
-      width: 90%; /* nút cũng ngắn lại để đồng bộ với input */
+      width: 100%;
       transition: all 0.3s ease;
     }
 
     button[type="submit"]:hover {
-      background: linear-gradient(135deg, #2a5298, #1e3c72);
+      background: #0ea5e9;
       transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 12px rgba(14, 165, 233, 0.3);
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
+      from { opacity: 0; transform: translateY(-15px); }
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
