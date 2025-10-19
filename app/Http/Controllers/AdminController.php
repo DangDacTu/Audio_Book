@@ -39,7 +39,7 @@ class AdminController extends Controller
     public function logout(){
         return view('adminLogin');
     }
-
+//thêm sản phẩm
     public function save_category_product(Request $request)
     {
         $data = [
@@ -65,6 +65,7 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'Thêm sản phẩm thành công!');
     }
+    //hiển thị tất cả sản phẩm
     public function all_category_product(Request $request){
         $all_category_product = DB::table('tbl_product')->get();
         $manager_category_product = view('admin.all_category_product')->with('all_category_product');
@@ -76,12 +77,13 @@ class AdminController extends Controller
         DB::table('tbl_product')->where('category_id', $id)->delete();
         return redirect('/return-admin-dashboard')->with('success', 'Xóa sản phẩm thành công!');
     }
+    //sửa sản phẩm
     public function edit_category_product($id)
     {
         $product = DB::table('tbl_product')->where('category_id', $id)->first();
         return view('editProduct', compact('product'));
     }
-
+//cập nhật sản phẩm
     public function update_category_product(Request $request, $id)
     {
         $data = [
@@ -106,5 +108,21 @@ class AdminController extends Controller
         DB::table('tbl_product')->where('category_id', $id)->update($data);
 
         return redirect()->route('product.list')->with('success', 'Cập nhật sản phẩm thành công!');
+    }
+    //thống kê doanh thu
+    public function revenue()
+    {
+        // Tính tổng doanh thu từ bảng library (sản phẩm đã bán)
+        $totalRevenue = DB::table('library')
+            ->join('tbl_product', 'library.product_id', '=', 'tbl_product.category_id')
+            ->sum('tbl_product.category_price');
+
+        // Lấy danh sách sản phẩm đã bán (nếu muốn hiển thị chi tiết)
+        $soldProducts = DB::table('library')
+            ->join('tbl_product', 'library.product_id', '=', 'tbl_product.category_id')
+            ->select('tbl_product.category_name', 'tbl_product.category_price', 'library.created_at')
+            ->get();
+
+        return view('admin.revenue', compact('totalRevenue', 'soldProducts'));
     }
 }

@@ -99,16 +99,15 @@
 <body>
 	<div class="sidebar">
 		<div class="logo">
-			AudioBook
+			Audiobook
 		</div>
 		<a href="{{ URL::to('/home') }}"><i class="fas fa-home"></i> Trang chủ</a>
 		<a href="/library"><i class="fas fa-book"></i> Thư viện</a>
 		<a href="/ranking"><i class="fas fa-chart-line"></i> Bảng xếp hạng</a>
-		<a href="/listening"><i class="fas fa-headphones"></i> Đang nghe</a>
+		<a href="/listening"><i class="fas fa-headphones"></i> Đang Nghe</a>
 		<hr style="border-color: #374151;">
-		<a href="/audiobook"><i class="fas fa-book-open"></i> Sách nói</a>
+		<a href="/audiobook"><i class="fas fa-book-open"></i> Sách nói </a>
 		<a href="/story"><i class="fas fa-microphone"></i> Truyện nói</a>
-		<a href="/podcast"><i class="fas fa-podcast"></i> Podcast</a>
 		<a href="/kids"><i class="fas fa-child"></i> Thiếu nhi</a>
 	</div>
 	<div class="main-content">
@@ -126,7 +125,16 @@
 					<a href="{{ URL::to('/cart') }}" style="color:#fff; font-size:20px; text-decoration:none;">
 						<i class="fa-solid fa-cart-shopping"></i>
 					</a>
-					<div class="avatar"></div>
+					<!-- Avatar dropdown -->
+					<div class="dropdown">
+						<button class="avatar dropdown-toggle" type="button" id="avatarDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="border:none; background:#64748b;">
+						</button>
+						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="avatarDropdown">
+							<li><a class="dropdown-item" href="/admin">Admin</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="/logout">Đăng xuất</a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
 			@yield('content')

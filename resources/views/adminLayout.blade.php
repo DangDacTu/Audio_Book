@@ -82,9 +82,10 @@
             <li><a href="{{ route('product.list') }}">Sản phẩm trên gian hàng</a></li>
             <li><a href="{{ route('add.product') }}">Thêm sản phẩm</a></li>
             <li><a href="{{ route('user.info') }}">Thông tin người dùng</a></li>
+            <li><a href="{{ route('admin.revenue') }}">Doanh thu</a></li> 
         </ul>
     </aside>
-    
+
     <main>
         <div style="text-align:right;">
             <form action="{{ url('/logout') }}" method="GET">
@@ -94,5 +95,3 @@
         </div>
 
         @yield('adminContent')
-
-
