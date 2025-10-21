@@ -70,8 +70,6 @@ Hệ thống hỗ trợ thanh toán VNPAY, quản lý doanh thu cho admin, và m
 #### Chức năng đăng kí & đăng nhập
 ![image](https://github.com/user-attachments/assets/719df947-5ddb-40a1-9a04-4345fd48c74b)
 ![image](https://github.com/user-attachments/assets/0b56c5d5-e562-4694-9d68-fafdf1645d4f)
-#### Chức năng quản lý dơn hàng
-![image](https://github.com/user-attachments/assets/75b1c56f-cd6a-4611-8e62-2e4e42f077ed)
 ### Chức năng thêm sản phẩm vào giở hàng
 ![image](https://github.com/DangDacTu/Audio_Book/blob/master/public/images/giohangthanhtoan.jpg)
 ### Chức năng tìm kiếm
