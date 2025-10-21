@@ -62,7 +62,8 @@ Hệ thống hỗ trợ thanh toán VNPAY, quản lý doanh thu cho admin, và m
 ![database](https://github.com/user-attachments/assets/9059466e-84f8-47a5-a5fa-a5b3301837cd)
 ### 2.2 Sơ đồ Use case
 #### Admin
-![admin](https://github.com/user-attachments/assets/8e633632-44cf-43a4-8516-b64c3a22bd07)
+![admin](<img width="887" height="698" alt="image" src="https://github.com/user-attachments/assets/66a15c10-7f0a-469a-bcf8-44f5d778418d" />
+)
 #### User
 ![user](https://github.com/user-attachments/assets/a5c841bb-1e3b-4042-bf25-fdfe00e263f7)
 ### 2.3 Lưu đồ thuật toán
