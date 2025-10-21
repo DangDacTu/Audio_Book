@@ -59,12 +59,12 @@ Hệ thống hỗ trợ thanh toán VNPAY, quản lý doanh thu cho admin, và m
 - Xuất báo cáo: barryvdh/laravel-dompdf
 ## UML Dự Án
 ### 2.1 Mô hình quan hệ
-![database](https://github.com/user-attachments/assets/9059466e-84f8-47a5-a5fa-a5b3301837cd)
+![database](https://github.com/DangDacTu/Audio_Book/blob/master/public/images/download.jpg)
 ### 2.2 Sơ đồ Use case
 #### Admin
 ![admin](https://github.com/DangDacTu/Audio_Book/blob/master/public/images/admin.jpg)
 #### User
-![user](https://github.com/user-attachments/assets/a5c841bb-1e3b-4042-bf25-fdfe00e263f7)
+![user](https://github.com/DangDacTu/Audio_Book/blob/master/public/images/dangkinhap.jpg)
 ### 2.3 Lưu đồ thuật toán
 ### Sơ đồ hoạt động các chức năng
 #### Chức năng đăng kí & đăng nhập
@@ -73,20 +73,20 @@ Hệ thống hỗ trợ thanh toán VNPAY, quản lý doanh thu cho admin, và m
 #### Chức năng quản lý dơn hàng
 ![image](https://github.com/user-attachments/assets/75b1c56f-cd6a-4611-8e62-2e4e42f077ed)
 ### Chức năng thêm sản phẩm vào giở hàng
-![image](https://github.com/user-attachments/assets/7b50d271-9394-46f4-b4fd-c0c47a2bdc19)
-### Chức năng tìm kiếm & xem chi tiết sản phẩm
+![image](https://github.com/DangDacTu/Audio_Book/blob/master/public/images/giohangthanhtoan.jpg)
+### Chức năng tìm kiếm
 ![image](https://github.com/user-attachments/assets/50afbff1-181f-4ed3-b1ab-671ae9b82eae)
-### Chức năng thanh toán
-![image](https://github.com/user-attachments/assets/8e573c58-bf38-4840-965b-5b0a8ce3f78e)
+### Chức năng thư viện
+![image](https://github.com/DangDacTu/Audio_Book/blob/master/public/images/thuvien.jpg)
 ### Biểu đồ tuần tự các chức năng
 #### đăng nhập & đăng kí
-![signin](https://github.com/user-attachments/assets/2ba80e95-4b4b-49f5-b57e-bd3bf81e3d79)
-![signup](https://github.com/user-attachments/assets/31d49f10-f346-438c-b13a-33aa16cc2646)
+![signin](https://github.com/DangDacTu/Audio_Book/blob/master/public/images/dangki.png)
+![signup](https://github.com/DangDacTu/Audio_Book/blob/master/public/images/dangnhappp.png)
 #### tìm kiếm
-![search](https://github.com/user-attachments/assets/272ecafe-6756-4880-a82e-4dc99112403d)
+![search](https://github.com/DangDacTu/Audio_Book/blob/master/public/images/timkiem.png)
 ### Mua Sách
-![đặthàng](https://github.com/user-attachments/assets/dd8e7158-eacf-4e6b-bea8-4d75a77fa5c6)
+![đặthàng](https://github.com/DangDacTu/Audio_Book/blob/master/public/images/muahangthanhtoan.png)
 ### Thư viện
-![payment](https://github.com/user-attachments/assets/30159407-8544-4e85-bd86-224502dbbede)
+![payment](https://github.com/DangDacTu/Audio_Book/blob/master/public/images/thuvien.png)
 ## GitHub Pages Dự Án
-[Truy cập dự án tại đây](https://github.com/ngtthanh365/WEBNC-GROUP7-CSE702051-1-3-24-COUR01.TH2)
+[Truy cập dự án tại đây](https://github.com/DangDacTu/Audio_Book)
