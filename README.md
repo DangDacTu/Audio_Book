@@ -5,8 +5,8 @@ Group_4-Thiết kế web nâng cao-1-1-1-25(COUR01.TH1)
 Website Sách Nói là một nền tảng thương mại điện tử hiện đại, cho phép người dùng mua, nghe và quản lý sách nói trực tuyến.
 Hệ thống hỗ trợ thanh toán VNPAY, quản lý doanh thu cho admin, và mang lại trải nghiệm đọc - nghe sách tiện lợi cho người dùng.
 ## Thành Viên Nhóm
-- **Nguyễn Tuấn Thành**: Phát triển phần mềm toàn diện.
-- **Nguyễn Huy Hoàng**: Phát triển phần mềm toàn diện.
+- **Đặng Đắc Tú**: Phát triển phần mềm toàn diện.
+- **Vũ Thị Khánh Vân**: Phát triển phần mềm toàn diện.
 ## 1.Các chức năng chính
 ### Admin
 #### 1.1 Chức năng quản lý sản phẩm
